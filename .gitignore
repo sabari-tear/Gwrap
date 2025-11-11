@@ -29,3 +29,5 @@ test_json2.exe
 test.cpp
 test_json.cpp
 cpp_install.ps1
+
+.gitignore

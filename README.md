@@ -162,6 +162,59 @@ Search vcpkg for more: `vcpkg search <query>`
 - vcpkg installs packages globally, but gwrap copies them locally
 - Currently supports x64-windows target
 
+## CMake Integration
+
+Gwrap works as a drop-in replacement for g++ in CMake projects:
+
+```powershell
+# Copy cpp_modules/ to your CMake project directory
+# Then configure:
+cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER="path/to/gwrap.exe" .
+mingw32-make
+```
+
+See `test_cmake/` for a complete example.
+
+## Common Commands
+
+```powershell
+# Setup
+.\gwrap.exe config init                    # Auto-detect tools
+.\gwrap.exe config show                    # Show current config
+.\gwrap.exe config set vcpkg <path>        # Set vcpkg path
+.\gwrap.exe config set gpp <path>          # Set g++ path
+
+# Package management
+.\gwrap.exe install <package>              # Install package
+.\gwrap.exe update                         # Update all packages
+
+# Compilation (just like g++)
+.\gwrap.exe -std=c++17 main.cpp -o main.exe
+.\gwrap.exe -std=c++20 -O3 main.cpp -o main.exe
+```
+
+## Contributing
+
+Contributions welcome! 
+
+1. Fork the repository
+2. Build: `g++ -std=c++17 -O2 gwrap.cpp -o gwrap.exe`
+3. Test your changes
+4. Submit a pull request
+
+## Project Structure
+
+```
+Gwrap/
+├── gwrap.cpp              # Main wrapper program
+├── gwrap.exe              # Compiled binary
+├── gwrap_config.ps1       # Configuration management
+├── vcpkg_install.ps1      # Package installation
+├── vcpkg_update.ps1       # Package updates
+├── test_cmake/            # CMake integration example
+└── README.md              # This file
+```
+
 ## License
 
 MIT
