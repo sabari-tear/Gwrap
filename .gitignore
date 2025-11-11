@@ -1,0 +1,31 @@
+# Build artifacts
+*.exe
+*.o
+*.obj
+!gwrap.exe
+
+# CMake
+test_cmake/build/
+test_cmake/CMakeFiles/
+test_cmake/cmake_install.cmake
+test_cmake/CMakeCache.txt
+test_cmake/Makefile
+test_cmake/*.exe
+
+# Package directories (local installations)
+cpp_modules/
+
+# Configuration (user-specific)
+gwrap_config.json
+
+# Package tracking (should be committed)
+# cpp_package.json
+
+# Old/test files
+a.exe
+forward.exe
+test_json.exe
+test_json2.exe
+test.cpp
+test_json.cpp
+cpp_install.ps1
